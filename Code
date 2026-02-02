@@ -1,0 +1,34 @@
+class NumberConverter:
+    """A utility class for various base conversions."""
+
+    # --- Hexadecimal <-> Base 10 ---
+    @staticmethod
+    def hex_to_decimal(hex_string):
+        return int(hex_string, 16)
+
+    @staticmethod
+    def decimal_to_hex(decimal_int):
+        # Using [2:] to remove the '0x' prefix
+        return hex(decimal_int)[2:].upper()
+
+    # --- Base 10 <-> Binary ---
+    @staticmethod
+    def decimal_to_binary(decimal_int):
+        # Using [2:] to remove the '0b' prefix
+        return bin(decimal_int)[2:]
+
+    @staticmethod
+    def binary_to_decimal(binary_string):
+        return int(binary_string, 2)
+
+# Example Usage:
+if __name__ == "__main__":
+    conv = NumberConverter()
+
+    # Hex <-> Decimal
+    print(f"Hex 'A' to Decimal: {conv.hex_to_decimal('A')}")
+    print(f"Decimal 255 to Hex: {conv.decimal_to_hex(255)}")
+
+    # Decimal <-> Binary
+    print(f"Decimal 10 to Binary: {conv.decimal_to_binary(10)}")
+    print(f"Binary '1010' to Decimal: {conv.binary_to_decimal('1010')}")
